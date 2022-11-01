@@ -135,7 +135,7 @@ static void mdlOutputs(double *y, double *x, double *u, SimStruct *S, int tid)
   y[29] = x[24];   /* Sh2 */   
   y[30] = x[25];   /* Sch4 */
   y[31] = x[26];   /* Sco2 */
-  y[32] = x[27];   /* D2 */
+  y[32] = x[27];   /* D2 - Now using for mineral solids*/
   y[33] = x[28];   /* D3 */
   y[34] = x[29];   /* D4 */   
   y[35] = x[30];   /* D5 */
@@ -438,7 +438,8 @@ X_I =  xtemp[23];
 
 S_gas_h2 =  xtemp[24];
 S_gas_ch4 = xtemp[25];
-S_gas_co2 = xtemp[26];  
+S_gas_co2 = xtemp[26];
+M_S = xtemp[27];
 
 S_co2 = (xtemp[9]-xtemp[63]);
 S_nh3 = xtemp[64];
@@ -617,7 +618,7 @@ dx[23] = 1.0/V_liq*(u[24]*u[23])-(x[23]/(t_res+V_liq/u[24]))+reac24;
 dx[24] = -S_gas_h2* q_gas/V_gas+procT8*V_liq/V_gas;        /* Sh2 */
 dx[25] = -S_gas_ch4*q_gas/V_gas+procT9*V_liq/V_gas;        /* Sch4 */
 dx[26] = -S_gas_co2*q_gas/V_gas+procT10*V_liq/V_gas;       /* Sco2 */
-dx[27] = 0.0;  /* D2 */
+dx[27] = 1.0/V_liq*(u[24]*u[27])-(x[27]/(t_res+V_liq/u[27]));  /* D2 - Now using for Mineral Solids*/ 
 dx[28] = 0.0;  /* D3 */
 dx[29] = 0.0;  /* D4 */
 dx[30] = 0.0;  /* D5 */
