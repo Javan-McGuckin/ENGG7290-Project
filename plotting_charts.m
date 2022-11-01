@@ -158,5 +158,18 @@ xlabel("Time (Days)")
 ylabel("Concentration (COD / m^3)")
 axis([127 566 0 0.125])
 
+%% Mineral Solids
+figure
+
+hold on
+plot(time,digesterin(:,27),'r')
+plot(time,digesterout(:,33),'b')
+title("Mineral Solids","Concentrations in and out of model")
+
+grid on
+xlabel("Time (days)")
+ylabel("Concentration (kg COD / m^3)")
+legend("Mineral Solids In","Mineral Solids Out")
+
 
 
