@@ -45,7 +45,7 @@ X_I =  0.1269;
 S_gas_h2 = 1.1032e-5;
 S_gas_ch4 = 1.6535;
 S_gas_co2 = 0.0135;
-S_gas_D2 = 0;
+S_gas_D2 = 1; % NOW BEING USED FOR Mineral Solids
 S_gas_D3 = 0;
 S_gas_D4 = 0;
 S_gas_D5 = 0;
@@ -187,7 +187,7 @@ k_dec_Xac = 0.02;
 k_dec_Xh2 = 0.02;
 R_cte = 0.083145;       % universal gas constant dm3*bar/(mol*K) = 8.3145 J/(mol*K)
 T_base = 298.15;    % 25 degC = 298.15 K
-T_op = 273+20;      % operational temperature of AD and interfaces, 35 degC, should really be an input
+T_op = 273.15+20;      % operational temperature of AD and interfaces, 35 degC, should really be an input
 pK_w_base = 14.0;
 pK_a_va_base = 4.86;
 pK_a_bu_base = 4.82;
