@@ -128,7 +128,7 @@ disp(['   Snh4 =  ', num2str(digesterout(m,11)-digesterout(m,83)), ' kmol/m3 '])
 disp(' ')
 disp('COD balance ')
 disp('*********************')
-disp(['   COD load in =  ',  num2str((sum(digesterin(m,1:9)) +   sum(digesterin(m,12:24))  + digesterin(m,28) +  digesterin(m,30) +   sum(digesterin(m,38:43 )))*digesterin(m,25)  + AD_constinfluent_bsm2(end,91) + AD_constinfluent_bsm2(end,92)), ' kg COD/d']);
+disp(['   COD load in =  ',  num2str((sum(digesterin(m,1:9)) +   sum(digesterin(m,12:24))  + digesterin(m,28) +  digesterin(m,30) +   sum(digesterin(m,38:43 )))*digesterin(m,25)  + AD_dynamicconc_pilot(end,91) + AD_dynamicconc_pilot(end,92)), ' kg COD/d']);
 disp(['   COD load out = ',  num2str((sum(digesterout(m,1:9)) + sum(digesterout(m,12:24)) +  digesterout(m,56) + digesterout(m,58) +  sum(digesterout(m,66:71)))*digesterout(m,25) + Methaneflowvec.*64/16 + Hydrogenflowvec.*16/2), ' kg COD/d']);
 disp(['   COD conversion (gas) = ',  num2str(Methaneflowvec.*64/16/((sum(digesterout(m,1:9)) + sum(digesterout(m,12:24)) +  digesterout(m,56) + digesterout(m,58) +  sum(digesterout(m,66:71)))*digesterout(m,25) + Methaneflowvec.*64/16 + Hydrogenflowvec.*16/2)), ' kg COD/d']);
 disp(['   COD conversion (liq) = ',  num2str(((sum(digesterout(m,1:9)) + sum(digesterout(m,12:24)) +  digesterout(m,56) + digesterout(m,58) +  sum(digesterout(m,66:71)))*digesterout(m,25) + Hydrogenflowvec.*16/2)/((sum(digesterout(m,1:9)) + sum(digesterout(m,12:24)) +  digesterout(m,56) + digesterout(m,58) +  sum(digesterout(m,66:71)))*digesterout(m,25) + Methaneflowvec.*64/16 + Hydrogenflowvec.*16/2)), ' kg COD/d']);
