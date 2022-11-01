@@ -5,8 +5,11 @@
 
 %% SET UP 
 
-adm1init_Pilot;  % also includes settings for AS/AD and AD/AS interfaces
+% Defines the initial conditions for the model and solver
 
+adm1init_bsm2;  
+
+% Loads the storage matrix for flow conditions
 
 load AD_constinfluent_bsm2;
 
@@ -23,8 +26,11 @@ disp(['Start time for simulation (hour:min:sec) = ', num2str(round(start(4:6)))]
 
 sim('adm1_ss'); %Simulate the BSM2 under constant influent 
 
-plotting_results
-% File which prints key final values and balances into the command window
+%% DATA PRINTING AND PROCESSING
 
+% File which prints key final values and balances into the command window
+plotting_results
+
+% File which plots desired charts
 plotting_charts
 

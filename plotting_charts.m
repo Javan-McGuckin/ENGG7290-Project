@@ -24,7 +24,7 @@ Valerate    = digesterout(:,4);
 %% PLOTTING GAS FLOWS
 % Plot of the composition and volume of gas flow over the whole time period
 % of the data
-subplot(1,3,1:2)
+subplot(2,3,1:2)
 
 area(time, [Methane_flow_volume Hydrogen_flow_Volume CarbonDioxide_flow_Volume])
 
@@ -33,54 +33,54 @@ grid on
 xlabel("Time (Days)")
 ylabel("Total Gas Flow (m^3/Day)")
 legend("Methane","Hydrogen","Carbon Dioxide")
-axis([0 100 0 100])
+axis([0 600 0 0.125])
 
-% % Plot of the total gas flow against the measured gas flow for a HRT of 8
-% % days
-% subplot(2,3,4)
-% hold on
-% scatter(PILOT_DATA_ALL(:,1)+127,PILOT_DATA_ALL(:,4))
-% plot(time,Total_gas_flow,'k')
-% grid on
-% axis([127 277 0 0.125])
-% 
-% title("Modelled Gas FLow vs Gas Flow Data","8 Day HRT")
-% xlabel("Time (Days)")
-% ylabel("Total Gas Flow (m^3/Day)")
-% legend("Data","Modelled Preformance")
-% 
-% % Plot of the total gas flow against the measured gas flow for a HRT of 4
-% % days
-% subplot(2,3,5)
-% hold on
-% scatter(PILOT_DATA_ALL(:,1)+127,PILOT_DATA_ALL(:,4))
-% plot(time,Total_gas_flow,'k')
-% 
-% grid on
-% axis([277 401 0 0.125])
-% 
-% title("Modelled Gas FLow vs Gas Flow Data","4 Day HRT")
-% xlabel("Time (Days)")
-% ylabel("Total Gas Flow (m^3/Day)")
-% legend("Data","Modelled Preformance")
-% 
-% % Plot of the total gas flow against the measured gas flow for a HRT of 2
-% % days
-% subplot(2,3,6)
-% hold on
-% scatter(PILOT_DATA_ALL(:,1)+127,PILOT_DATA_ALL(:,4))
-% plot(time,Total_gas_flow,'k')
-% 
-% grid on
-% axis([401 600 0 0.125])
-% 
-% title("Modelled Gas FLow vs Gas Flow Data","2 Day HRT")
-% xlabel("Time (Days)")
-% ylabel("Total Gas Flow (m^3/Day)")
-% legend("Data","Modelled Preformance")
+% Plot of the total gas flow against the measured gas flow for a HRT of 8
+% days
+subplot(2,3,4)
+hold on
+scatter(PILOT_DATA_ALL(:,1)+127,PILOT_DATA_ALL(:,4))
+plot(time,Total_gas_flow,'k')
+grid on
+axis([127 277 0 0.125])
+
+title("Modelled Gas FLow vs Gas Flow Data","8 Day HRT")
+xlabel("Time (Days)")
+ylabel("Total Gas Flow (m^3/Day)")
+legend("Data","Modelled Preformance")
+
+% Plot of the total gas flow against the measured gas flow for a HRT of 4
+% days
+subplot(2,3,5)
+hold on
+scatter(PILOT_DATA_ALL(:,1)+127,PILOT_DATA_ALL(:,4))
+plot(time,Total_gas_flow,'k')
+
+grid on
+axis([277 401 0 0.125])
+
+title("Modelled Gas FLow vs Gas Flow Data","4 Day HRT")
+xlabel("Time (Days)")
+ylabel("Total Gas Flow (m^3/Day)")
+legend("Data","Modelled Preformance")
+
+% Plot of the total gas flow against the measured gas flow for a HRT of 2
+% days
+subplot(2,3,6)
+hold on
+scatter(PILOT_DATA_ALL(:,1)+127,PILOT_DATA_ALL(:,4))
+plot(time,Total_gas_flow,'k')
+
+grid on
+axis([401 600 0 0.125])
+
+title("Modelled Gas FLow vs Gas Flow Data","2 Day HRT")
+xlabel("Time (Days)")
+ylabel("Total Gas Flow (m^3/Day)")
+legend("Data","Modelled Preformance")
 
 %% Plotting pH
-subplot(1,3,3)
+subplot(2,3,3)
 
 plot(time,pH)
 
