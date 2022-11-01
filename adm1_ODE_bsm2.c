@@ -439,7 +439,6 @@ X_I =  xtemp[23];
 S_gas_h2 =  xtemp[24];
 S_gas_ch4 = xtemp[25];
 S_gas_co2 = xtemp[26];
-M_S = xtemp[27];
 
 S_co2 = (xtemp[9]-xtemp[63]);
 S_nh3 = xtemp[64];
@@ -618,7 +617,7 @@ dx[23] = 1.0/V_liq*(u[24]*u[23])-(x[23]/(t_res+V_liq/u[24]))+reac24;
 dx[24] = -S_gas_h2* q_gas/V_gas+procT8*V_liq/V_gas;        /* Sh2 */
 dx[25] = -S_gas_ch4*q_gas/V_gas+procT9*V_liq/V_gas;        /* Sch4 */
 dx[26] = -S_gas_co2*q_gas/V_gas+procT10*V_liq/V_gas;       /* Sco2 */
-dx[27] = 1.0/V_liq*(u[24]*u[27])-(x[27]/(t_res+V_liq/u[27]));  /* D2 - Now using for Mineral Solids*/ 
+dx[27] = 1.0/V_liq*(u[24]*u[26])-(x[27]/(t_res+V_liq/u[24]));  /* D2 - Now using for Mineral Solids*/ 
 dx[28] = 0.0;  /* D3 */
 dx[29] = 0.0;  /* D4 */
 dx[30] = 0.0;  /* D5 */
@@ -630,7 +629,7 @@ dx[35] = 0.0;  /* D10 */
 
 /* Bio P reactions (reac25) */ 
 
-dx[36] = 1.0/V_liq*(u[24]*(u[26]-x[36])); /* D1 */
+dx[36] = 1.0/V_liq*(u[24]*(u[27]-x[36])); /* D1 */
 dx[37] = 0.0; /* D2 */
 dx[38] = 0.0; /* D3 */
 dx[39] = 0.0; /* D4 */
