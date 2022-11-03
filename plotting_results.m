@@ -1,3 +1,4 @@
+%% ORIGIONAL CODE
 [m n]=size(digesterout);
 
 disp(' ')
@@ -149,3 +150,39 @@ totNeffAD = (digesterout(m,11) + digesterout(m,2)*N_aa + digesterout(m,15)*N_aa 
 
 disp(['   N load in =  ',  num2str(totNinfAD), ' kmol N/d']);
 disp(['   N load out = ',  num2str(totNeffAD), ' kmol N/d']);
+
+%% CORRECTING FOR SRT and ADDITIONAL OUTPUTS
+
+% This section of the code is set up to correct the outflows of the model
+% for the SRT. In the C code currently the outputs are mapped directly to
+% the state which is impacted by the seperatre SRT and doesnt represent the
+% actual outflow from the model;
+
+% Define Storage matrix to populate with corrected values
+Corrected_Output_Values = ones(length(digesterout),24);
+
+Corrected_Output_Values(:,1:24) = (digesterout(:,1:24))*V_liq./(digesterout(:,25)*DIGESTERPAR(101));
+
+% Calculate pCOD out of the model by summing all of the Xi terms in the
+% model outputs, note well does not include MSS. Similarly can calculate
+% the sCOD and TCOD
+
+pCOD_out = sum(Corrected_Output_Values(:,14:24),2);
+sCOD_out = sum(Corrected_Output_Values(:,1:9),2);
+tCOD_out = pCOD_out + sCOD_out;
+
+% Calculate the corrected MSS value using the same equation used to correct
+% other values 
+MSS_out = (digesterout(:,33))*V_liq./(digesterout(:,25)*DIGESTERPAR(101));
+
+% Calculating VSS Note well here the values being used were taken from a 
+% later version of the model which was used to account for PHA.
+
+VSS_out = sum(Corrected_Output_Values(:,14:16),2)/1.5686 + ...
+          sum(Corrected_Output_Values(:,17:23),2)/1.3072 + ...
+          Corrected_Output_Values(:,24)/1.5686;
+
+TSS_out = MSS_out + VSS_out;
+
+
+
