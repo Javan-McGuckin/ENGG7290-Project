@@ -1,4 +1,4 @@
-%% ORIGIONAL CODE
+%% ORIGIONAL CODE FOR PRINTING TO COMMAND WINDOW
 [m n]=size(digesterout);
 
 disp(' ')
@@ -151,7 +151,7 @@ totNeffAD = (digesterout(m,11) + digesterout(m,2)*N_aa + digesterout(m,15)*N_aa 
 disp(['   N load in =  ',  num2str(totNinfAD), ' kmol N/d']);
 disp(['   N load out = ',  num2str(totNeffAD), ' kmol N/d']);
 
-%% CORRECTING FOR SRT and ADDITIONAL OUTPUTS
+%% CORRECTING FOR SRT IN MODEL STATES
 
 % This section of the code is set up to correct the outflows of the model
 % for the SRT. In the C code currently the outputs are mapped directly to
@@ -163,6 +163,7 @@ Corrected_Output_Values = ones(length(digesterout),24);
 
 Corrected_Output_Values(:,1:24) = (digesterout(:,1:24))*V_liq./(digesterout(:,25)*DIGESTERPAR(101));
 
+%% pCOD sCOD and tCOD
 % Calculate pCOD out of the model by summing all of the Xi terms in the
 % model outputs, note well does not include MSS. Similarly can calculate
 % the sCOD and TCOD
@@ -171,12 +172,13 @@ pCOD_out = sum(Corrected_Output_Values(:,14:24),2);
 sCOD_out = sum(Corrected_Output_Values(:,1:9),2);
 tCOD_out = pCOD_out + sCOD_out;
 
+%% MSS VSS and TSS
 % Calculate the corrected MSS value using the same equation used to correct
-% other values 
+% other values in the model to account for solids retained due to SRT
 MSS_out = (digesterout(:,33))*V_liq./(digesterout(:,25)*DIGESTERPAR(101));
 
-% Calculating VSS Note well here the values being used were taken from a 
-% later version of the model which was used to account for PHA.
+% Calculating VSS using sum(xi/CODi) note well corrected values have been
+% used here.
 
 VSS_out = sum(Corrected_Output_Values(:,14:16),2)/1.5686 + ...
           sum(Corrected_Output_Values(:,17:23),2)/1.3072 + ...
