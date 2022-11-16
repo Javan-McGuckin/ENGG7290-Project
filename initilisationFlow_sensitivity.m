@@ -17,7 +17,7 @@ load pilotData_measuredInfluentProperties.mat
 % Define storage matrix to fill 
 AD_dynamicconc_pilot = zeros(length(pilotData_measuredInfluentProperties)+1,94);
 
-Degradability_Fraction = 0.7;
+
 
 
 %% FILLING MATRIX

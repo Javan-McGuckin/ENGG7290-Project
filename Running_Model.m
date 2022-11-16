@@ -6,7 +6,7 @@ clear all; clc;
 %% SET UP 
 
 adm1init_bsm2;  % Defines the initial conditions for the model and solver
-load AD_dynamicconc_pilot.mat; % Loads the storage matrix for flow conditions
+initilisationFlow; % Loads the storage matrix for flow conditions
 adm1_ss % Loads Simulink File
 
 %% RUNNING & PLOTTING
