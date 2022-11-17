@@ -18,7 +18,7 @@
  * Xc is removed from the list of state variables. Decay process is automatically mapped into Xch, Xli, Xpro, Xi and Si
  * May 2015
  *
- */
+ */t
 
 #define S_FUNCTION_NAME adm1_ODE_bsm2
 
@@ -584,22 +584,22 @@ q_gas = k_P*(P_gas-P_atm);
 if (q_gas < 0)
    q_gas = 0.0;
    
-dx[0] = 1.0/V_liq*(u[24]*u[0])-(x[0]/(t_res+V_liq/u[24]))+reac1;
-dx[1] = 1.0/V_liq*(u[24]*u[1])-(x[1]/(t_res+V_liq/u[24]))+reac2;
-dx[2] = 1.0/V_liq*(u[24]*u[2])-(x[2]/(t_res+V_liq/u[24]))+reac3;
-dx[3] = 1.0/V_liq*(u[24]*u[3])-(x[3]/(t_res+V_liq/u[24]))+reac4;
-dx[4] = 1.0/V_liq*(u[24]*u[4])-(x[4]/(t_res+V_liq/u[24]))+reac5;
-dx[5] = 1.0/V_liq*(u[24]*u[5])-(x[5]/(t_res+V_liq/u[24]))+reac6; 
-dx[6] = 1.0/V_liq*(u[24]*u[6])-(x[6]/(t_res+V_liq/u[24]))+reac7;
+dx[0] = 1.0/V_liq*(u[24]*(u[0]-x[0]))+reac1;
+dx[1] = 1.0/V_liq*(u[24]*(u[1]-x[1]))+reac2;
+dx[2] = 1.0/V_liq*(u[24]*(u[2]-x[2]))+reac3;
+dx[3] = 1.0/V_liq*(u[24]*(u[3]-x[3]))+reac4; 
+dx[4] = 1.0/V_liq*(u[24]*(u[4]-x[4]))+reac5; 
+dx[5] = 1.0/V_liq*(u[24]*(u[5]-x[5]))+reac6; 
+dx[6] = 1.0/V_liq*(u[24]*(u[6]-x[6]))+reac7; 
 
 /* calculated in Sh2solv.c */
-dx[7] = 1.0/V_liq*(u[24]*u[7])-(x[7]/(t_res+V_liq/u[24]))+reac8;                                 
+dx[7] = 1.0/V_liq*(u[24]*(u[7]-x[7]))+reac8;                                 
 
-dx[8]  = 1.0/V_liq*(u[24]*u[8])-(x[8]/(t_res+V_liq/u[24]))+reac9;
-dx[9]  = 1.0/V_liq*(u[24]*u[9])-(x[9]/(t_res+V_liq/u[24]))+reac10;    /* SIC */
-dx[10] = 1.0/V_liq*(u[24]*u[10])-(x[10]/(t_res+V_liq/u[24]))+reac11; /* SIN */
-dx[11] = 1.0/V_liq*(u[24]*u[11])-(x[11]/(t_res+V_liq/u[24]))+reac12;
-dx[12] = 1.0/V_liq*(u[24]*u[12])-(x[12]/(t_res+V_liq/u[24]))+reac13;
+dx[8] = 1.0/V_liq*(u[24]*(u[8]-x[8]))+reac9;
+dx[9] = 1.0/V_liq*(u[24]*(u[9]-x[9]))+reac10;    /* SIC */
+dx[10] = 1.0/V_liq*(u[24]*(u[10]-x[10]))+reac11; /* SIN */
+dx[11] = 1.0/V_liq*(u[24]*(u[11]-x[11]))+reac12;
+dx[12] = 1.0/V_liq*(u[24]*(u[12]-x[12]))+reac13;
 dx[13] = 1.0/V_liq*(u[24]*u[13])-(x[13]/(t_res+V_liq/u[24]))+reac14;
 dx[14] = 1.0/V_liq*(u[24]*u[14])-(x[14]/(t_res+V_liq/u[24]))+reac15;
 dx[15] = 1.0/V_liq*(u[24]*u[15])-(x[15]/(t_res+V_liq/u[24]))+reac16;
