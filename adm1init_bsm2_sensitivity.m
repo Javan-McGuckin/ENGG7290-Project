@@ -1,3 +1,7 @@
+% This file differes from adm1init_bsm2 as the hydrolysis coefficient and
+% SRT are defined as variables in the run file which allows for sensitivity
+% analysis to be more eaisly conducted
+% 
 % This file initiates parameter values and sets initial conditions for any of the three
 % model implementations adm1_ODE, adm1_DAE1 and adm1_DAE2. Note that some of the
 % parameter values deviate from the values given in the ADM1-STR (Batstone et al., 2002).
