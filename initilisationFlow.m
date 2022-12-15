@@ -30,8 +30,8 @@ AD_dynamicconc_pilot([2:end],1)= pilotData_measuredInfluentProperties(:,1);
 AD_dynamicconc_pilot([2:end],11)  = 0.008;    % IC (kM C / M^3)
 AD_dynamicconc_pilot([2:end],13) = 0.03;      % S_I (kg COD / M^3)
 AD_dynamicconc_pilot([2:end],27) = 20;        % Temperature (C)
-AD_dynamicconc_pilot([2:end],48) = 0.014;     % Sodium
-AD_dynamicconc_pilot([2:end],50) = 0.0002;    % Chlorine
+AD_dynamicconc_pilot([2:end],48) = 0.014;     % Sodium (Na)
+AD_dynamicconc_pilot([2:end],50) = 0.0002;    % Chlorine (Cl)
 
 % DYNAMIC
    
