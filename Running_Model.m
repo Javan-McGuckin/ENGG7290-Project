@@ -22,7 +22,7 @@ sim('adm1_ss'); %Simulate the Pilot under dynamic influent
 %% DATA PRINTING AND PROCESSING
 
 % File which prints key final values and balances into the command window
-plotting_results
+post_processing
 
 % File which plots desired charts
 

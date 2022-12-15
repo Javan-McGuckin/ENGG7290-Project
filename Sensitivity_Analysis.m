@@ -26,7 +26,7 @@ adm1_ss % Loads Simulink File
 
 sim('adm1_ss'); %Simulate the Pilot under dynamic influent
 
-plotting_results;
+post_processing;
 
 % Load known effluent data from storage matrix (C1 = Time, C2 = sCOD, C3 =
 % pCOD, C4 = TSS, C5 = VSS, C6 = Gas Flow, C7 = Gas Quality)

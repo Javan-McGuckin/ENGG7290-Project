@@ -1,3 +1,6 @@
+% Uses degradability function as a variable which is defined in the run
+% file to allow for better sensitivity analysis
+
 %% DESCRIPTION
 % In order to change the degradability of the influent data for the trials
 % need to do the data processing in MATLAB. This code takes the raw data
